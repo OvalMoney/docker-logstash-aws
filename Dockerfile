@@ -1,4 +1,4 @@
-FROM docker.elastic.co/logstash/logstash:5.6
+FROM docker.elastic.co/logstash/logstash:5.6.4
 
 RUN plugin install \
     logstash-input-beats \
