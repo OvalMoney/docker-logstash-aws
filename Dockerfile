@@ -11,8 +11,8 @@ RUN logstash-plugin remove \
     logstash-input-beats \
     logstash-output-amazon_es
 
-COPY --chown=logstash:logstash logstash.conf ./logstash.tpl.conf
-COPY  --chown=logstash:logstash launcher.sh ./launcher.sh
+COPY logstash.conf ./logstash.tpl.conf
+COPY launcher.sh ./launcher.sh
 
 EXPOSE 5044/tcp
 
