@@ -1,7 +1,6 @@
-FROM docker.elastic.co/logstash/logstash:5.6.4
+FROM docker.elastic.co/logstash/logstash-oss:6.1.3
 
-RUN logstash-plugin remove x-pack && \
-    logstash-plugin install logstash-output-amazon_es
+RUN logstash-plugin install logstash-output-amazon_es
 
 USER root
 
