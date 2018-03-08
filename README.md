@@ -7,8 +7,8 @@ Default pipeline config accept these env vars
 
 | ENV           | Default       | Required |
 | ------------- | ------------- | -------- |
-| FB_HOST       | 127.0.0.1     | YES      |
-| FB_PORT       | 5044          | YES      |
+| LISTEN_HOST   | 0.0.0.0       | YES      |
+| LISTEN_PORT   | 5044          | YES      |
 | ES_HOST       |               | YES      |
 | AWS_REGION    |               | YES      |
 | ACCESS_KEY    |               | NO       |
@@ -19,8 +19,8 @@ Default pipeline config accept these env vars
 ```
 input { 
   beats {
-    host => "${FB_HOST:127.0.0.1}"
-    port => "${FB_PORT:5044}"
+    host => "${LISTEN_HOST:0.0.0.0}"
+    port => "${LISTEN_PORT:5044}"
   }
 }
 
