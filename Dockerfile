@@ -1,4 +1,4 @@
-FROM docker.elastic.co/logstash/logstash-oss:6.2.2
+FROM docker.elastic.co/logstash/logstash-oss:6.2.3
 
 RUN logstash-plugin install logstash-output-amazon_es
 
