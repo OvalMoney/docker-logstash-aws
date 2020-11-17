@@ -1,7 +1,7 @@
 FROM jruby:9-alpine as build-plugin-aws-es
-ENV LOGSTASH_AWS_ES_VERSION 9cbdde8b4d8ae85f775a204c463cc7802c798a2b
+ENV LOGSTASH_AWS_ES_VERSION 6.4.2
 
-RUN wget -O plugin.zip https://github.com/OvalMoney/logstash-output-amazon_es/archive/${LOGSTASH_AWS_ES_VERSION}.zip && \
+RUN wget -O plugin.zip https://github.com/awslabs/logstash-output-amazon_es/archive/v${LOGSTASH_AWS_ES_VERSION}.zip && \
   unzip plugin.zip
 
 WORKDIR /logstash-output-amazon_es-${LOGSTASH_AWS_ES_VERSION}
@@ -10,7 +10,7 @@ RUN gem build logstash-output-amazon_es.gemspec  && \
     mv logstash-output-amazon_es*.gem ..
 
 
-FROM docker.elastic.co/logstash/logstash-oss:6.5.4 as run
+FROM docker.elastic.co/logstash/logstash-oss:6.8.13 as run
 
 COPY --from=build-plugin-aws-es logstash-output-amazon_es*.gem .
 RUN bin/logstash-plugin install logstash-output-amazon_es*.gem && \
