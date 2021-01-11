@@ -1,6 +1,6 @@
 FROM docker.elastic.co/logstash/logstash-oss:6.8.13
 
-RUN bin/logstash-plugin install --version 6.4.2 logstash-output-amazon_es
+RUN bin/logstash-plugin install --version 7.0.1 logstash-output-amazon_es
 
 USER root
 
